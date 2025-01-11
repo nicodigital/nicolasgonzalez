@@ -1,0 +1,19 @@
+tab-link,
+.tab-link{
+  @apply opacity-50 cursor-pointer;
+}
+
+tab-link.active,
+.tab-link.active{
+  @apply opacity-100;
+}
+
+tab-content{
+.tab-content,
+  @apply hidden;
+}
+
+tab-content.active,
+.tab-content.active{
+  @apply block;
+}

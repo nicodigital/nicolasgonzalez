@@ -1,0 +1,35 @@
+.btn{
+  @apply 
+    inline-flex items-center justify-center gap-1
+    w-fit
+    py-[1.3rem] px-2 xg:py-1
+    border-[1px] border-transparent
+    text-center leading-[1]
+    cursor-pointer transition-all duration-[.4s] ease-in-out;
+}
+
+/* Solid */
+.btn.solid.white{
+  @apply bg-white text-black;
+}
+
+.btn.solid.white:hover{
+  @apply bg-white text-black border-white !important; 
+}
+
+.btn.solid.black{
+  @apply bg-neutral-950 text-white;
+}
+
+.btn.solid.black:hover{
+  @apply bg-neutral-600 text-black !important;
+}
+
+/* Outline */
+.btn.outline.white{
+  @apply text-white border-[1px] border-white outline-none;
+}
+
+.btn.outline.white:hover{
+  @apply bg-white text-black border-black;
+}
