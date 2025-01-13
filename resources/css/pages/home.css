@@ -1,0 +1,3 @@
+.home{
+  @apply xg:max-h-screen overflow-hidden;
+}

@@ -12,11 +12,13 @@
 @import "./layout/header.css";
 @import "./layout/section.css";
 @import "./layout/tools.css";
-@import "./layout/hero.css";
 @import "./layout/burger.css";
 @import "./layout/custom.css";
 @import "./layout/content.css";
 @import "./layout/footer.css";
+
+/* Pages */
+@import "./pages/home.css";
 
 /* Components */
 @import "./components/buttons.css";

@@ -30,7 +30,7 @@ body{
 [id]{scroll-margin-top: 10ex}
 
 main {
-  @apply overflow-hidden min-h-screen;
+  @apply relative overflow-hidden min-h-screen z-10;
 }
 
 container{

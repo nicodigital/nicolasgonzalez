@@ -11,12 +11,13 @@ export default {
     theme: {
         extend: {
           fontFamily: {
-            sans: ['Haas-new-med', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
-            // serif: ['Roboto Slab'],
+            sans: ['Haas-new-med', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            title: ['Helvetica Neue LT Pro']
           },
           colors: {
             red: 'var(--red)',
-            greydark: 'var(--greydark)'
+            greydark: 'var(--greydark)',
+            greylight: 'var(--greylight)'
           },
           fontSize: {
             big: 'var(--big)',
