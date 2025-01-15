@@ -99,7 +99,7 @@ export default {
             none: '0',
             sm: '.125rem',
             DEFAULT: '.25rem',
-            lg: '.8rem',
+            lg: '1rem',
             full: '9999px'
           }
         },

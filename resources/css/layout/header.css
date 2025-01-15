@@ -1,11 +1,8 @@
 header {
-   @apply relative flex
-      ctr-py xg:h-[33vh] 
+   @apply absolute top-0 left-0 w-full
+      flex
+      ctr-py xg:h-[25vh] 
       z-[99] transition-all;
-}
-
-.home header {
-  @apply absolute top-0 left-0 w-full;
 }
 
 header .row {

@@ -15,11 +15,12 @@ html {
 } */
 
 body{
-  @apply text-body text-white bg-greydark;
+  @apply text-body text-white bg-greydark min-h-screen;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   word-wrap: break-word;
   height: 100%;
+  cursor: none !important;
 }
 
 @view-transition{
@@ -30,7 +31,7 @@ body{
 [id]{scroll-margin-top: 10ex}
 
 main {
-  @apply relative overflow-hidden min-h-screen z-10;
+  @apply relative flex flex-1 pt-20 z-10;
 }
 
 container{
@@ -49,9 +50,13 @@ grid{
   grid-column: 1 / 13;
 }
 
-
 img, video{
   @apply w-full object-cover;
+}
+
+body.home, body.my-stack,
+body.contact{
+  @apply xg:h-screen overflow-hidden;
 }
 
 /*//////////////////////////////////////////////////////////*/

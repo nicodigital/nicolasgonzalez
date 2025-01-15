@@ -16,13 +16,18 @@
         {{ partial:head/otherMetas }}
         <meta name="view-transition" content="same-origin" />
     </head>
-    <body class="{{ slug }}" >
-        
+    <body class="{{ slug }} once" data-barba="wrapper" >
+    <div class="pointer"></div>
+        <!-- barba start -->
+        <div class="barba-container flex flex-col h-full" data-barba="container" data-barba-namespace="{{ slug }}">
+
         {{ partial:layout/header }}
 
         <main>
             {{ template_content }}
         </main>
+
+        {{ partial:layout/footer }}
 
     </body>
 </html>

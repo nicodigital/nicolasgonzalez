@@ -1,0 +1,30 @@
+card-pack{
+  @apply grid grid-cols-[4fr_1fr] gap-2
+  bg-greydark p-2 rounded-lg;
+}
+
+card-pack h2{
+  @apply text-h2 min-h-[15rem] col-1-3;
+}
+
+card-pack num{
+  @apply flex justify-end
+  font-title text-[4.5rem] font-bold leading-[1];
+}
+
+card-pack figure{
+  @apply flex justify-end;
+}
+
+card-pack svg{
+  @apply size-5;
+}
+
+card-pack ul{
+  @apply flex flex-col justify-end
+  text-small list-disc list-inside;
+}
+
+card-pack price{
+  @apply flex items-end justify-end text-h2;
+}

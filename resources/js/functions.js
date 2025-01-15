@@ -2,12 +2,13 @@
 import lenisScroll from './module/lenisScroll.js'
 import menuMobile from './module/menuMobile.js'
 import scrollMarkers from './module/scrollMarkers.js'
+import pointer from './module/pointer.js'
 // import customSwiper from './module/customSwiper.js'
 // import modal from './module/modal.js'
 // import accordion from './module/accordion.js'
 // import cookies from './module/cookies.js'
 // import filters from './module/filters.js'
-import darkModeOS from './module/darkModeOS.js'
+// import darkModeOS from './module/darkModeOS.js'
 import animations from './module/animations.js'
 import contactForm from './module/contactForm.js'
 import preventZoom from './module/preventZoom.js'
@@ -23,11 +24,12 @@ function functions (container = document, deviceData) {
   // startHtmx(container, animations)
   menuMobile(deviceData)
   scrollMarkers(deviceData)
+  pointer(deviceData)
   // customSwiper()
   // modal()
   // filters()
   // accordion()
-  darkModeOS(cookies)
+  // darkModeOS(cookies)
   animations(container)
   contactForm(container)
   // tabs()
