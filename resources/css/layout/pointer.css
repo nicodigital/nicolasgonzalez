@@ -1,5 +1,5 @@
 .pointer{
-  @apply fixed top-0 left-0 z-[99999999] pointer-events-none;
+  @apply hidden xg:block fixed top-0 left-0 z-[99999999] pointer-events-none;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transition: all 0.2s ease-out;
@@ -7,12 +7,11 @@
 
 .pointer:before{
   content: '';
-  @apply flex size-[2.5rem]; 
-  background-image: url("data:image/svg+xml,%3Csvg width='13' height='14' viewBox='0 0 13 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.712 12.5916V1.94042H8.89282V0.531998H12.5019V14H8.89282V12.5916H10.712Z' fill='white'/%3E%3Cpath d='M2.28596 1.94042V12.5916H4.10517V14H0.496094V0.531998H4.10517V1.94042H2.28596Z' fill='white'/%3E%3C/svg%3E%0A");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9.12 11.94v4.95H5.69V5.69h11.2v3.43h-4.95l6.37 6.38l-2.81 2.81z'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
-  transform-origin: center;
-  transition: all 0.2s ease-out;
+  @apply flex size-[3.2rem]; 
+  transition: all 0.3s ease-in-out;
 }
 
 .pointer.o-pointer:before,
@@ -21,17 +20,13 @@
 }
 
 .pointer-link{
-  @apply block w-fit relative;
+  @apply xg:block w-fit relative;
 }
 
 .pointer-link:before,
 .pointer-link:after{
-  content: "";
-  @apply absolute block top-[50%] left-[50%] size-[2.5rem] translate-x-[-50%] translate-y-[-55%] opacity-0;
-  background-image: url("data:image/svg+xml,%3Csvg width='5' height='14' viewBox='0 0 5 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.28596 1.94042V12.5916H4.10517V14H0.496094V0.531998H4.10517V1.94042H2.28596Z' fill='white'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  transform-origin: center;
+  content: "[";
+  @apply absolute block top-[50%] left-[50%] text-[2.5rem] translate-x-[-50%] translate-y-[-55%] opacity-0;
   transition: all 0.2s ease-out;
 }
 
@@ -40,12 +35,8 @@
 }
 
 .pointer-link:after{
+  content: "]";
   @apply left-[70%];
-}
-
-
-.pointer-link:after{
-  background-image: url("data:image/svg+xml,%3Csvg width='5' height='14' viewBox='0 0 5 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.71203 12.5916V1.94042H0.892822V0.531998H4.50189V14H0.892822V12.5916H2.71203Z' fill='white'/%3E%3C/svg%3E");
 }
 
 .pointer-link.active:before,
@@ -56,4 +47,12 @@
 .pointer-link.active:after,
 .pointer-link:hover:after{
   @apply opacity-100 left-[100%] translate-x-[0.5rem];
+}
+
+
+
+.pointer.arrow:before{
+  content: "";
+  @apply size-5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M8.5 18.31L5.69 15.5l6.37-6.38H7.11V5.69h11.2v11.2h-3.42v-4.95z'/%3E%3C/svg%3E");
 }

@@ -46,9 +46,9 @@ grid{
   @apply grid gap-1 grid-cols-12 md:gap-2 w-full;
 }
 
-.row > *, row > * {
+/* .row > *, row > * {
   grid-column: 1 / 13;
-}
+} */
 
 img, video{
   @apply w-full object-cover;

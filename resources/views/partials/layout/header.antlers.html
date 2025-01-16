@@ -1,15 +1,18 @@
 <header class="container row">
 
-  <div class="xg:col-1-7">
+  <div class="col-1-5 xg:col-1-7">
     {{ partial:header/brand }}
   </div>
 
-  <div class="xg:col-7-10">
+  <div class="col-5-9 xg:col-7-10">
     {{ partial:header/menu }}
   </div>
   
-  <div class="xg:col-10-13 flex justify-end">
-    {{ partial:header/langSwitcher }}
+  <div class="col-9-13 xg:col-10-13 flex justify-end">
+    <div class="hidden xg:block" >
+      {{ partial:header/langSwitcher }}
+    </div>
+    {{ partial:header/burger }}
   </div>
 
 </header>

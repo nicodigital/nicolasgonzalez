@@ -221,7 +221,10 @@ export default {
               '.container': {
                 'padding-left': 'var(--container-gap)',
                 'padding-right': 'var(--container-gap)'
-              }
+              },
+              '.row > *, row > * ': {
+                'grid-column': '1 / 13'
+              },
             })
           },
           function ({ addUtilities }) {

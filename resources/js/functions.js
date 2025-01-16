@@ -24,7 +24,8 @@ function functions (container = document, deviceData) {
   // startHtmx(container, animations)
   menuMobile(deviceData)
   scrollMarkers(deviceData)
-  pointer(deviceData)
+  
+  if (deviceData.isDesktop === true ) pointer()
   // customSwiper()
   // modal()
   // filters()

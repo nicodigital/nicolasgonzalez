@@ -1,6 +1,7 @@
 function pointer () {
   const pointer = document.querySelector('.pointer')
   const pointerLink = document.querySelectorAll('.pointer-link')
+  const pointerArrow = document.querySelectorAll('.pointer-arrow')
 
   // Optimización: Usar requestAnimationFrame para el mousemove
   let rafId
@@ -28,9 +29,9 @@ function pointer () {
     handleHover( pointerLink, 'o-pointer' )
   }
 
-  // if (viewMore?.length) {
-  //   handleHover(viewMore, 'view-more')
-  // }
+  if (pointerArrow?.length) {
+    handleHover(pointerArrow, 'arrow')
+  }
 
 
 }
