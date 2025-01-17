@@ -41,12 +41,12 @@
 
 .pointer-link.active:before,
 .pointer-link:hover:before{
-  @apply opacity-100 left-0 translate-x-[-1.5rem];
+  @apply xg:opacity-100 left-0 translate-x-[-1.5rem];
 }
 
 .pointer-link.active:after,
 .pointer-link:hover:after{
-  @apply opacity-100 left-[100%] translate-x-[0.5rem];
+  @apply xg:opacity-100 left-[100%] translate-x-[0.5rem];
 }
 
 

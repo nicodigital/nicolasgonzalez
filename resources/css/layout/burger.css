@@ -1,5 +1,5 @@
 burger {
-		@apply absolute top-2 right-0 block xg:hidden z-[9999]
+		@apply absolute top-[2.5rem] right-0 block xg:hidden z-[9999]
 		transition-all duration-[.3s] ease-in-out;
 }
 

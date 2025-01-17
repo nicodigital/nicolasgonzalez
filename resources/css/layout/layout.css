@@ -31,7 +31,8 @@ body{
 [id]{scroll-margin-top: 10ex}
 
 main {
-  @apply relative flex flex-1 pt-20 z-10;
+  @apply relative flex flex-1 pt-20 z-10 
+  transition-all duration-300 ease-in-out;
 }
 
 container{
@@ -52,6 +53,10 @@ grid{
 
 img, video{
   @apply w-full object-cover;
+}
+
+.menu-in main{
+  @apply translate-x-[-100%];
 }
 
 body.home, body.my-stack,

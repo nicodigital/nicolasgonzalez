@@ -5,24 +5,28 @@ header {
       z-[99] transition-all;
 }
 
+logo{
+  @apply block relative top-1 xg:top-0
+  transition-all ease-in-out duration-300;
+}
+
 header .row {
    @apply w-full items-center;
 }
 
 menu {
   @apply 
-    fixed xg:relative w-100% top-0 right-0 h-screen xg:h-auto
-    flex flex-col xg:flex-row  gap-2
+    fixed xg:relative w-100% top-0 left-0 h-screen xg:h-auto
+    flex flex-col justify-between xg:flex-row  gap-2
     ctr-px py-2 xg:p-0 
-    bg-neutral-700 xg:bg-transparent
     translate-x-[100%]	xg:translate-x-[0%]
     z-[999] transition-all ease-in-out duration-[.4s];
 }
 
 menu nav {
   @apply 
-  relative flex flex-col xg:flex-row justify-start xg:justify-between gap-2
-  w-full top-5 xg:top-0;
+  relative w-full
+  flex flex-col xg:flex-row justify-start xg:justify-between gap-3 xg:gap-2;
 }
  
  menu .m-item{
@@ -33,12 +37,11 @@ menu nav {
     @apply translate-x-[0%];
  }
 
-header .brand{
-  @apply relative top-[.5rem] xg:top-0; 
- }
 
- menu .brand path{
-  fill: white;
- }
+.menu-in logo{
+  @apply translate-x-[-200%];
+}
+
+
 
 

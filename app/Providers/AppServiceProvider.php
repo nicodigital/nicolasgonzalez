@@ -2,11 +2,19 @@
 
 namespace App\Providers;
 
+use App\Tags\PageStatus;
 use Illuminate\Support\ServiceProvider;
+use Statamic\Facades\File;
+use Statamic\Facades\Tags;
+use Statamic\Providers\AddonServiceProvider;
 use Statamic\Statamic;
 
-class AppServiceProvider extends ServiceProvider
+class AppServiceProvider extends AddonServiceProvider
 {
+    protected $tags = [
+        'pageStatus' => PageStatus::class,
+    ];
+
     /**
      * Register any application services.
      */

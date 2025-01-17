@@ -1,6 +1,6 @@
 card-pack{
   @apply grid grid-cols-[4fr_1fr] gap-2
-  bg-greydark p-2 rounded-lg;
+  bg-greylight p-2 rounded-lg;
 }
 
 card-pack h2{

@@ -1,23 +1,23 @@
 <container class="ctr-p">
 
   <row>
-    <div class="xg:col-1-7 flex items-end ctr-pb">
-      <ul class="inline-flex flex-col w-fit">
-        <li>All</li>
-        <li>One Page</li>
-        <li>Static Sites</li>
-        <li>Dynamic Sites</li>
-        <li>eCommerce</li>
+    <div class="col-1-7 flex items-end ctr-pb">
+      <ul class="inline-flex flex-col w-fit gap-[.75rem] xg:gap-0">
+        <li class="pointer-link">All</li>
+        <li class="pointer-link">One Page</li>
+        <li class="pointer-link">Static Sites</li>
+        <li class="pointer-link">Dynamic Sites</li>
+        <li class="pointer-link">eCommerce</li>
       </ul>
     </div>
-    <div class="xg:col-7-13 flex justify-end">
-      <h1 class="title">
+    <div class="col-7-13 flex justify-end items-end">
+      <h1 class="title translate-y-[-1rem] xg:translate-x-0">
         Works
       </h1>
     </div>
   </row>
 
-  <div class="grid grid-cols-3 gap-2">
+  <div class="grid xg:grid-cols-3 gap-2">
 
     {{ loop from="1" to="12" }}
         <card class="pointer-arrow">
