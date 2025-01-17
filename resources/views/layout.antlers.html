@@ -1,25 +1,33 @@
 <!doctype html>
 <html lang="{{ site:short_locale }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        {{ partial:head/fontFace }}
-        {{ partial:head/seoMetas }}
-        
-        {{ vite src="resources/js/site.js|resources/css/site.css" }}
-        
-        {{ partial:head/openGraph }}
-        {{ partial:head/richSnippets }}
-        {{ partial:head/favicon }}
-        {{ partial:head/otherMetas }}
-        <meta name="view-transition" content="same-origin" />
-    </head>
-    <body class="{{ slug }} toggler once" data-barba="wrapper" >
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ partial:head/fontFace }}
+    {{ partial:head/seoMetas }}
+
+    {{ vite src="resources/js/site.js|resources/css/site.css" }}
+
+    {{ partial:head/openGraph }}
+    {{ partial:head/richSnippets }}
+    {{ partial:head/favicon }}
+    {{ partial:head/otherMetas }}
+</head>
+
+<body class="{{ slug }} toggler once" data-barba="wrapper">
     <div class="pointer"></div>
-        <!-- barba start -->
-        <div class="barba-container flex flex-col h-full" data-barba="container" data-barba-namespace="{{ slug }}">
+    {{ partial:layout/logo }}
+
+    <video class="bg-video" preload autoplay muted playsinline loop>
+        <source src='video/bgNicolasGonzalez.mp4' type='video/mp4'>
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- barba start -->
+    <div class="barba-container flex flex-col h-full" data-barba="container" data-barba-namespace="{{ slug }}">
 
         {{ partial:layout/header }}
 
@@ -29,5 +37,6 @@
 
         {{ partial:layout/footer }}
 
-    </body>
+</body>
+
 </html>

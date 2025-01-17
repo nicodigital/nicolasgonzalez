@@ -1,5 +1,4 @@
 function scrollMarkers (device_data) {
-  // console.log(device_data)
   const body = device_data.body
   const footer = device_data.footer
   const isDesktop = device_data.isDesktop
@@ -7,24 +6,27 @@ function scrollMarkers (device_data) {
   const isTablet = device_data.isTablet
   const platform = device_data.platform
 
-  function setMarkers () {
-    const scrollPosition = window.scrollY
+  // Variable para mantener referencia al observer
+  let currentObserver = null
 
-    // Opciones para el IntersectionObserver
-    const options = {
-      root: null, // Usar el viewport como área de observación
-      rootMargin: '0px', // Margen adicional alrededor del área de observación
-      threshold: 0.5 // Porcentaje del elemento que debe estar visible para activar la función de callback
+  function setMarkers () {
+    // Limpiar observer anterior si existe
+    if (currentObserver) {
+      currentObserver.disconnect()
     }
 
-    // Función de callback que se ejecuta cuando el elemento entra en la pantalla
+    const scrollPosition = window.scrollY
+
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    }
+
     const callback = function (entries, observer) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // console.log('Elemento está ahora en pantalla!');
           body.setAttribute('data-scroll', 'bottom')
-          // Puedes realizar aquí las acciones que desees cuando el elemento entre en pantalla
-          // Por ejemplo, cambiar su estilo, cargar contenido adicional, etc.
         } else {
           if (scrollPosition < 100) {
             body.setAttribute('data-scroll', 'top')
@@ -35,10 +37,13 @@ function scrollMarkers (device_data) {
       })
     }
 
-    // Crear una instancia de IntersectionObserver con la función de callback y opciones
-    const observer = new IntersectionObserver(callback, options)
-    // Observa el elemento target
-    observer.observe(footer)
+    // Crear nueva instancia del observer
+    currentObserver = new IntersectionObserver(callback, options)
+    
+    // Asegurarse de que el footer existe antes de observarlo
+    if (footer) {
+      currentObserver.observe(footer)
+    }
   }
 
   let lastScrollTop = ''
@@ -51,18 +56,35 @@ function scrollMarkers (device_data) {
     } else {
       body.dataset.stack = 'on'
     }
-
     lastScrollTop = st
   }
 
-  window.onscroll = (e) => {
-    setMarkers()
+  // Inicializar los markers
+  setMarkers()
 
+  // Event listeners
+  window.addEventListener('scroll', () => {
+    setMarkers()
     if (platform != 'ios' && isMobile === true) {
       smart_menu()
     } else if (isDesktop === true || isTablet === true) {
       smart_menu()
     }
+  })
+
+  // Retornar función de limpieza
+  return () => {
+    if (currentObserver) {
+      currentObserver.disconnect()
+    }
+    window.removeEventListener('scroll', () => {
+      setMarkers()
+      if (platform != 'ios' && isMobile === true) {
+        smart_menu()
+      } else if (isDesktop === true || isTablet === true) {
+        smart_menu()
+      }
+    })
   }
 }
 

@@ -2,47 +2,49 @@ import barba from '@barba/core'
 import barbaPrefetch from '@barba/prefetch'
 import { removeOnce, animEnter, animLeave } from './gsap.js'
 import functions from '../functions.js'
-// import { getClickedItem, getClickedItemIndex, getClickedAnchor } from './clickedItem.js'
 
 function transitions (deviceData) {
   barba.use(barbaPrefetch)
 
+  // Variable para mantener la función de limpieza actual
+  let currentCleanup = null
+
   barba.init({
-    // cacheFirstPage: true,
     debug: true,
     sync: true,
-    timeout: 10000, // default is 2000ms
+    timeout: 10000,
     transitions: [
-      // DEFAULT
       {
         once ({ next }) {
           console.log('ONCE DEFAULT')
-
-          functions(next.container, deviceData)
-          removeOnce() // Removemos la clase "once" para que saber que ya se ha cargado el ONCE
+          currentCleanup = functions(next.container, deviceData)
+          removeOnce()
         },
-        leave: ({ current }) => {
-          console.log('LEAVE DEFAULT')
-          // console.log(getClickedItem(), getClickedItemIndex(), getClickedAnchor())
 
+        leave: ({ next, current }) => {
+          console.log('LEAVE DEFAULT')
+          
+          // Limpiar funciones anteriores
+          if (currentCleanup && typeof currentCleanup === 'function') {
+            currentCleanup()
+          }
+          
           animLeave(current.container)
 
           return new Promise(resolve => {
             setTimeout(() => {
               resolve()
-            }, 500)
+            }, 400)
           })
         },
+
         enter: ({ next }) => {
           console.log('ENTER DEFAULT')
-
-          // animEnter(next.container)
-
+          animEnter(next.container)
+          // Inicializar nuevas funciones después de que el DOM esté listo
           setTimeout(() => {
-            functions(next.container, deviceData) // Tenemos que dare tiempo a la ejecución, debido a customRellax()
-          }, 100)
-
-          window.scrollTo(0, 0) // Force Scroll to top
+            currentCleanup = functions(next.container, deviceData)
+          }, 300)
         }
       }
     ]

@@ -12,5 +12,5 @@ export function animEnter( container ) {
 }
 
 export function animLeave( container ) {
-  return gsap.to( container, { autoAlpha: 0, duration: 0.5, y: -20 } );
+  return gsap.to( container, { autoAlpha: 0, duration: 0.4, y: -20 } );
 }

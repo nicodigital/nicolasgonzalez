@@ -23,11 +23,6 @@ body{
   cursor: none !important;
 }
 
-@view-transition{
-  navigation: auto;
-}
-
-
 [id]{scroll-margin-top: 10ex}
 
 main {
@@ -63,6 +58,7 @@ body.home, body.my-stack,
 body.contact{
   @apply xg:h-screen overflow-hidden;
 }
+
 
 /*//////////////////////////////////////////////////////////*/
 /*///////////////////////// 375px //////////////////////////*/
