@@ -33,6 +33,10 @@ menu nav {
     @apply translate-x-[0%];
  }
 
+header .brand{
+  @apply relative top-[.5rem] xg:top-0; 
+ }
+
  menu .brand path{
   fill: white;
  }
