@@ -25,3 +25,8 @@
   @apply text-h3 mb-3;
 }
 
+.char{
+  transform: translateY(10rem);
+  transition: transform .5s;
+}
+

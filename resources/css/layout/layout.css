@@ -59,6 +59,20 @@ body.contact{
   @apply xg:h-screen overflow-hidden;
 }
 
+.char{
+  transform: translateY(20rem);
+  transition: transform .5s;
+}
+
+#txtNico{
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  animation: nicoIntro 1s ease .2s forwards;
+}
+
+@keyframes nicoIntro{
+  0%{clip-path: polygon(0 0, 100% 0, 100% 0, 0 0)  }
+  100%{clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)}
+}
 
 /*//////////////////////////////////////////////////////////*/
 /*///////////////////////// 375px //////////////////////////*/
