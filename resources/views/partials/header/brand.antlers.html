@@ -1,13 +1,13 @@
 {{ if slug == 'home' }}
 
-<a href="{{ site:url }}" class="brand block anim force" data-anim="top">
-  <svg width="29" height="16" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M28.9768 9.85836L20.8635 14.2776V10.5609L25.3961 8.22664L20.8635 6.07366V1.97168L28.9768 6.34562V9.85836Z" fill="white"/><path d="M18.2117 0L14.1777 16H10.733L14.8123 0H18.2117Z" fill="white"/><path d="M8.11331 14.3003L0 9.90369V6.39094L8.11331 1.97168V5.71106L3.58074 8.04533L8.11331 10.1983V14.3003Z" fill="white"/></svg>
+<a href="{{ site:url }}" >
+  <svg><use href="#iso"/></svg>
 </a>
 
 {{ else }}
 
-<a href="{{ site:url }}" class="brand block anim force" data-anim="top">
+<a href="{{ site:url }}" class="inline-flex gap-1" >
+  <svg><use href="#iso"/></svg>
   <svg><use href="#logo"/></svg>
 </a>
 

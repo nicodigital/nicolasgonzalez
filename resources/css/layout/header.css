@@ -6,8 +6,20 @@ header {
 }
 
 logo{
-  @apply block relative top-1 xg:top-0
+  @apply inline-flex relative top-1 xg:top-0
   transition-all ease-in-out duration-300;
+}
+
+logo svg{
+  @apply inline-flex;
+}
+
+logo svg:has([href="#iso"]){
+  @apply w-4;
+}
+
+logo svg:has([href="#logo"]){
+  @apply w-[20rem];
 }
 
 header .row {

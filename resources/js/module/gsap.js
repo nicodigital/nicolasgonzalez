@@ -24,6 +24,10 @@ export function langSwitcher() {
     x: 0,
     duration: .5,
   }, "3.5")
+  .to(".lang-switcher span", {
+    width: "100%",
+    duration: .5,
+  }, "-=.5")
   .to(".lang-switcher a:nth-child(3)", {
     x: 0,
     duration: .5,
