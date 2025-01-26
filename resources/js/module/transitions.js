@@ -1,6 +1,6 @@
 import barba from '@barba/core'
 import barbaPrefetch from '@barba/prefetch'
-import { removeOnce, homeIntro } from './gsap.js'
+import { removeOnce, homeIntro, menuIntro, langSwitcher } from './gsap.js'
 import functions from '../functions.js'
 
 function transitions(deviceData) {
@@ -25,7 +25,9 @@ function transitions(deviceData) {
         },
         once({ next }) {
           console.log('ONCE HOME')
+          menuIntro()
           homeIntro()
+          langSwitcher()
           currentCleanup = functions(next.container, deviceData)
           removeOnce()
         },

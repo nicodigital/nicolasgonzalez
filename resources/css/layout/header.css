@@ -30,9 +30,11 @@ menu nav {
 }
  
  menu .m-item{
-   @apply text-h1 xg:text-body cursor-pointer;
+   @apply block 
+   text-h1 xg:text-body 
+   cursor-pointer;
  }
- 
+
  .menu-in menu{
     @apply translate-x-[0%];
  }
@@ -43,5 +45,9 @@ menu nav {
 }
 
 
-
+@media (min-width: 992px) {
+  menu nav{
+    clip-path: polygon(-10% -10%, 110% 0, 110% 100%, -10% 100%);
+  }
+}
 
