@@ -17,6 +17,7 @@
     "dependencies": {
         "@barba/core": "^2.10.3",
         "@barba/prefetch": "^2.2.0",
+        "cors": "^2.8.5",
         "gsap": "^3.12.5",
         "lenis": "^1.1.19"
     }

@@ -4,7 +4,7 @@
     w-fit
     border-[1px] border-transparent
     text-center leading-[1]
-    cursor-pointer transition-all duration-[.4s] ease-in-out;
+    cursor-pointer;
 }
 
 

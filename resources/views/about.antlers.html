@@ -1,34 +1,61 @@
 <div class="container relative h-full flex flex-col justify-between pb-20 xg:pb-0">
 
   <row>
-    <div class="col-1-10 xg:col-7-10">
+    <div class="col-1-10 xg:col-7-11">
 
       <article class="anim" data-anim="bottom">
-        <p>
-          I´m a Freelance Web Developer with expertise in interaction design, branding, and strategy. Supporting brands in
-          building compelling, user-friendly, and emotionally captivating experiences.
-        </p>
+        {{ partial:content/about }}
       </article>
 
       <div class="mt-8">
-        <h3 class="mb-3 anim" data-anim="bottom" data-delay="200" >My Stack</h3>
+        <h3 class="mb-3 anim-box">
+          <span class="block xg:translate-y-[-3rem]">My Stack</span>
+        </h3>
 
-        <ul class="grid grid-cols-2 xg:grid-cols-3 gap-x-2 mb-8 anim" data-anim="bottom" data-delay="400" >
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>Node.js</li>
-          <li>PHP</li>
-          <li>MySQL</li>
-          <li>Tailwind CSS</li>
-          <li>Bootstrap</li>
-          <li>Wordpress</li>
-          <li>Laravel</li>
-          <li>Statamic</li>
-          <li>Astro</li>
+        <ul class="grid grid-cols-2 xg:grid-cols-3 gap-x-2 mb-8">
+          <li>
+            <line> <span> HTML </span></line>
+          </li>
+          <li>
+            <line> <span> CSS </span></line>
+          </li>
+          <li>
+            <line> <span> JavaScript </span></line>
+          </li>
+          <li>
+            <line> <span> Node.js </span></line>
+          </li>
+          <li>
+            <line> <span> PHP </span></line>
+          </li>
+          <li>
+            <line> <span> MySQL </span></line>
+          </li>
+          <li>
+            <line> <span> Tailwind CSS </span></line>
+          </li>
+          <li>
+            <line> <span> Bootstrap </span></line>
+          </li>
+          <li>
+            <line> <span> Wordpress </span></line>
+          </li>
+          <li>
+            <line> <span> Laravel </span></line>
+          </li>
+          <li>
+            <line> <span> Statamic </span></line>
+          </li>
+          <li>
+            <line> <span> Astro </span></line>
+          </li>
         </ul>
 
-        <a href="/works" class="btn pointer-link anim" data-anim="bottom" data-delay="600" > Portfolio <svg xmlns="http://www.w3.org/2000/svg" class="w-[2rem] h-auto" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4 10v4h9l-3.5 3.5l2.42 2.42L19.84 12l-7.92-7.92L9.5 6.5L13 10z"/></svg> </a>
+        <div class="cta anim-box">
+          <a href="/works" class="btn pointer-link xg:translate-y-[-3rem]"> Portfolio <svg
+              xmlns="http://www.w3.org/2000/svg" class="w-[2rem] h-auto" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4 10v4h9l-3.5 3.5l2.42 2.42L19.84 12l-7.92-7.92L9.5 6.5L13 10z" /></svg>
+          </a>
+        </div>
 
       </div>
     </div>

@@ -1,6 +1,6 @@
 import barba from '@barba/core'
 import barbaPrefetch from '@barba/prefetch'
-import { removeOnce, homeIntro, homeOutro, menuIntro, langSwitcher, logoIntro, logoOutro, bigTitleIntro, worksIntro, worksOutro, bigTitleOutro } from './gsap.js'
+import { removeOnce, homeIntro, homeOutro, menuIntro, langSwitcher, logoIntro, logoOutro, bigTitleIntro, worksIntro, worksOutro, bigTitleOutro, myStackIntro, myStackOutro } from './gsap.js'
 import functions from '../functions.js'
 
 function transitions(deviceData) {
@@ -37,12 +37,13 @@ function transitions(deviceData) {
           return new Promise(resolve => {
 
             logoOutro(current.container)
-            bigTitleOutro()
-            worksOutro()
+            bigTitleOutro(current.container)
+            worksOutro(current.container)
+            myStackOutro(current.container)
 
             setTimeout(() => {
               resolve()
-            }, 1400)
+            }, 1500)
 
           })
         },
@@ -69,10 +70,11 @@ function transitions(deviceData) {
           }
 
           return new Promise(resolve => {
-            homeOutro()
+            homeOutro(current.container)
+            myStackOutro(current.container)
             setTimeout(() => {
               resolve()
-            }, 1400)
+            }, 1500)
           })
         },
 
@@ -87,39 +89,42 @@ function transitions(deviceData) {
           }, 300)
         }
       },
-      // DEFAULT
+      // TO MY STACK
       { 
-        name: 'default',
+        name: 'to-my-stack',
+        to: { namespace: 'my-stack' },
+
         once({ next }) {
-          console.log('ONCE DEFAULT')
+          console.log('ONCE TO MY STACK')
           currentCleanup = functions(next.container, deviceData)
+          myStackIntro()
           removeOnce()
         },
 
-        leave: ({ next, current }) => {
-          console.log('LEAVE -> DEFAULT')
+        enter: ({ next }) => {
+          console.log('ENTER TO MY STACK')
+          currentCleanup = functions(next.container, deviceData)
+          myStackIntro()
+        },
 
+        leave: ({ next, current }) => {
+          console.log('LEAVE -> TO MY STACK')
+          
           // Limpiar funciones anteriores
           if (currentCleanup && typeof currentCleanup === 'function') {
             currentCleanup()
           }
 
           return new Promise(resolve => {
-            // animLeave(current.container)
 
+            bigTitleOutro()
+            homeOutro()
+            worksOutro()
+            
             setTimeout(() => {
               resolve()
-            }, 400)
+            }, 1600)
           })
-        },
-
-        enter: ({ next }) => {
-          console.log('ENTER DEFAULT')
-
-          // Inicializar nuevas funciones después de que el DOM esté listo
-          setTimeout(() => {
-            currentCleanup = functions(next.container, deviceData)
-          }, 300)
         }
       }
     ]

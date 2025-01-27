@@ -8,7 +8,6 @@ import pointer from './module/pointer.js'
 // import filters from './module/filters.js'
 // import darkModeOS from './module/darkModeOS.js'
 import animations from './module/animations.js'
-import contactForm from './module/contactForm.js'
 import preventZoom from './module/preventZoom.js'
 import alertRotateDevice from './module/alertRotateDevice.js'
 
@@ -23,7 +22,6 @@ function functions (container = document, deviceData) {
   if (deviceData.isDesktop === true ) pointer()
   // filters()
   animations(container)
-  contactForm(container)
   preventZoom()
   alertRotateDevice(deviceData.isDesktop, deviceData.isBigTablet, deviceData.isMobile)
 

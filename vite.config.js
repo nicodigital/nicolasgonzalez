@@ -3,6 +3,12 @@ import laravel from 'laravel-vite-plugin';
 // import vue2 from '@vitejs/plugin-vue2';
 
 export default defineConfig({
+    server: {
+        cors: true, // Habilita CORS
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        }
+    },
     plugins: [
         laravel({
             input: [
