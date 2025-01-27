@@ -1,6 +1,18 @@
-.once menu .m-item span{
-  @apply block xg:-translate-y-4;
- }
+.home.once menu .m-item span {
+    @apply block xg:-translate-y-4;
+}
+
+.once .lang-switcher a:nth-child(1) {
+    @apply xg:translate-x-[-2.5rem];
+}
+
+.once .lang-switcher a:nth-child(2) {
+    @apply xg:w-0;
+}
+
+.once .lang-switcher a:nth-child(3) {
+    @apply xg:translate-x-[2.5rem];
+}
 
 /* .once{
   animation: firstLoad 1s ease;

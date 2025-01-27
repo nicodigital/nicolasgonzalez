@@ -1,0 +1,28 @@
+logo{
+  @apply inline-flex relative top-1 xg:top-0
+  transition-all ease-in-out duration-300;
+}
+
+logo svg{
+  @apply inline-flex;
+}
+
+logo svg:has([href="#iso"]){
+  @apply size-4;
+}
+
+#logo{
+  @apply flex flex-col translate-y-[-.25rem] pointer-events-none;
+}
+
+logo span{
+  @apply block;
+}
+
+logo .name span{
+  @apply font-title uppercase text-[2.75rem] leading-[1] translate-y-[110%];
+}
+
+logo .claim span{
+  @apply text-[1.9rem] leading-[1.3] translate-y-[-110%];
+}

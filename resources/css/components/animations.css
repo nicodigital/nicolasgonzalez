@@ -1,17 +1,27 @@
-.char{
+.chars span{
+  @apply inline-flex;
   transform: translateY(-20rem);
   transition: all .5s;
 }
 
-p .line{
-  transform: translateY(-2rem);
-  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-  transition: all .6s;
+line{
+  @apply xg:block;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+line span{
+  @apply xg:inline-flex;
+  transform: translateY(-3rem);
+  transition: all .5s ease-out;
 }
 
 .anim-box{
   width: fit-content;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.loop card{
+  @apply translate-y-[105%]
 }
 
 [data-anim]{
