@@ -89,14 +89,24 @@ export function logoIntro() {
 
   const tl = gsap.timeline()
 
-  return tl.to("logo .name span", {
+  return tl.to("body:not(.logo-active) logo .name span", {
     y: 0,
     duration: .6,
-  }).to("logo .claim span", {
+  }).to("body:not(.logo-active) logo .claim span", {
     y: 0,
-    duration: .6
+    duration: .6,
+    onComplete: () => {
+      setTimeout(() => {
+        document.querySelector('body').classList.add('logo-active')
+      },1000) 
+    }
   }, "-=.4");
 
+}
+
+/* remove LogoActive */
+export function removeLogoActive() {
+  document.querySelector('body').classList.remove('logo-active')
 }
 
 /* logo outro */
@@ -123,8 +133,8 @@ export function worksIntro() {
   return tl.to(".works .chars span", {
     y: 0,
     stagger: 0.05,
-    duration: 0.2,
-  }, "-=.65")
+    duration: 0.1,
+  })
     .to(".works line span", {
       y: 0,
       stagger: 0.1,

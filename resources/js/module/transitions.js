@@ -1,6 +1,6 @@
 import barba from '@barba/core'
 import barbaPrefetch from '@barba/prefetch'
-import { removeOnce, homeIntro, homeOutro, menuIntro, langSwitcher, logoIntro, logoOutro, worksIntro, worksOutro, myStackIntro, myStackOutro } from './gsap.js'
+import { removeOnce, homeIntro, homeOutro, menuIntro, langSwitcher, logoIntro, logoOutro, removeLogoActive, worksIntro, worksOutro, myStackIntro, myStackOutro } from './gsap.js'
 import functions from '../functions.js'
 
 function transitions(deviceData) {
@@ -14,7 +14,7 @@ function transitions(deviceData) {
     sync: true,
     timeout: 10000,
     transitions: [
-      // TO HOME
+      // HOME
       {
         name: 'to-home',
         to: { namespace: 'home' },
@@ -29,6 +29,7 @@ function transitions(deviceData) {
         enter({ next }) {
           console.log('ENTER TO HOME')
           // console.log(next)
+          removeLogoActive()
           homeIntro(next.container)
           currentCleanup = functions(next.container, deviceData)
           removeOnce()
@@ -48,7 +49,7 @@ function transitions(deviceData) {
           })
         },
       },
-      // TO WORKS
+      // WORKS
       { 
         name: 'to-works',
         to: { namespace: 'works' },
@@ -56,8 +57,8 @@ function transitions(deviceData) {
         once({ next }) {
           console.log('ONCE TO WORKS')
           logoIntro()
-          currentCleanup = functions(next.container, deviceData)
           worksIntro()
+          currentCleanup = functions(next.container, deviceData)
           removeOnce()
         },
 
@@ -89,7 +90,7 @@ function transitions(deviceData) {
         }
 
       },
-      // TO MY STACK
+      // MY STACK
       { 
         name: 'to-my-stack',
         to: { namespace: 'my-stack' },
@@ -97,12 +98,14 @@ function transitions(deviceData) {
         once({ next }) {
           console.log('ONCE TO MY STACK')
           currentCleanup = functions(next.container, deviceData)
+          logoIntro()
           myStackIntro()
           removeOnce()
         },
 
         enter: ({ next }) => {
           console.log('ENTER TO MY STACK')
+          logoIntro()
           currentCleanup = functions(next.container, deviceData)
           myStackIntro()
         },

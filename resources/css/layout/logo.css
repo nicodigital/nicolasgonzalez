@@ -20,9 +20,15 @@ logo span{
 }
 
 logo .name span{
-  @apply font-title uppercase text-[2.75rem] leading-[1] translate-y-[110%];
+  @apply font-title uppercase text-[2.75rem] leading-[1];
 }
 
 logo .claim span{
-  @apply text-[1.9rem] leading-[1.3] translate-y-[-110%];
+  @apply text-[1.9rem] leading-[1.3];
 }
+
+body:not(.logo-active) logo .name span,
+body:not(.logo-active) logo .claim span{
+  @apply translate-y-[-110%];
+}
+
