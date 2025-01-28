@@ -1,6 +1,6 @@
 import barba from '@barba/core'
 import barbaPrefetch from '@barba/prefetch'
-import { removeOnce, homeIntro, homeOutro, menuIntro, langSwitcher, logoIntro, logoOutro, bigTitleIntro, worksIntro, worksOutro, bigTitleOutro, myStackIntro, myStackOutro } from './gsap.js'
+import { removeOnce, homeIntro, homeOutro, menuIntro, langSwitcher, logoIntro, logoOutro, worksIntro, worksOutro, myStackIntro, myStackOutro } from './gsap.js'
 import functions from '../functions.js'
 
 function transitions(deviceData) {
@@ -18,17 +18,18 @@ function transitions(deviceData) {
       {
         name: 'to-home',
         to: { namespace: 'home' },
-        enter({ next }) {
-          console.log('ENTER TO HOME')
-          homeIntro()
-          currentCleanup = functions(next.container, deviceData)
-          removeOnce()
-        },
         once({ next }) {
           console.log('ONCE TO HOME')
           menuIntro()
-          homeIntro()
+          homeIntro(next.container)
           langSwitcher()
+          currentCleanup = functions(next.container, deviceData)
+          removeOnce()
+        },
+        enter({ next }) {
+          console.log('ENTER TO HOME')
+          // console.log(next)
+          homeIntro(next.container)
           currentCleanup = functions(next.container, deviceData)
           removeOnce()
         },
@@ -36,14 +37,13 @@ function transitions(deviceData) {
           console.log('LEAVE -> TO HOME')
           return new Promise(resolve => {
 
-            logoOutro(current.container)
-            bigTitleOutro(current.container)
-            worksOutro(current.container)
-            myStackOutro(current.container)
+            logoOutro()
+            worksOutro()
+            myStackOutro()
 
             setTimeout(() => {
               resolve()
-            }, 1500)
+            }, 1600)
 
           })
         },
@@ -52,13 +52,23 @@ function transitions(deviceData) {
       { 
         name: 'to-works',
         to: { namespace: 'works' },
+
         once({ next }) {
           console.log('ONCE TO WORKS')
           logoIntro()
-          bigTitleIntro()
-          worksIntro()
           currentCleanup = functions(next.container, deviceData)
+          worksIntro()
           removeOnce()
+        },
+
+        enter: ({ next }) => {
+          console.log('ENTER TO WORKS')
+          logoIntro()
+          worksIntro()
+          // Inicializar nuevas funciones después de que el DOM esté listo
+          setTimeout(() => {
+            currentCleanup = functions(next.container, deviceData)
+          }, 300)
         },
 
         leave: ({ next, current }) => {
@@ -74,20 +84,10 @@ function transitions(deviceData) {
             myStackOutro(current.container)
             setTimeout(() => {
               resolve()
-            }, 1500)
+            }, 1600)
           })
-        },
-
-        enter: ({ next }) => {
-          console.log('ENTER TO WORKS')
-          logoIntro()
-          bigTitleIntro()
-          worksIntro()
-          // Inicializar nuevas funciones después de que el DOM esté listo
-          setTimeout(() => {
-            currentCleanup = functions(next.container, deviceData)
-          }, 300)
         }
+
       },
       // TO MY STACK
       { 
@@ -117,7 +117,6 @@ function transitions(deviceData) {
 
           return new Promise(resolve => {
 
-            bigTitleOutro()
             homeOutro()
             worksOutro()
             

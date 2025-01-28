@@ -38,12 +38,12 @@ export function langSwitcher() {
 export function homeIntro(container) {
   const tl = gsap.timeline()
 
-  return tl.to('h1', {
+  return tl.to('.home h1', {
     y: 0,
     duration: .75,
     delay: .75
   }, "-=.2")
-    .to("line span", {
+    .to(".home line span", {
       y: 0,
       stagger: 0.15,
       duration: .6,
@@ -52,7 +52,7 @@ export function homeIntro(container) {
       y: 0,
       duration: .65,
     }, "-=.2")
-    .to(".chars span", {
+    .to(".home .chars span", {
       y: 0,
       stagger: 0.05,
       duration: 0.1,
@@ -62,11 +62,11 @@ export function homeIntro(container) {
 export function homeOutro(container) {
   const tl = gsap.timeline()
 
-  return tl.to('h1', {
+  return tl.to('.home h1', {
     y: "-3rem",
     duration: .75,
   })
-    .to("line span", {
+    .to(".home line span", {
       y: "-3rem",
       stagger: -0.1,
       duration: .7,
@@ -75,7 +75,7 @@ export function homeOutro(container) {
       y: "-3rem",
       duration: .75,
     }, "-=.75")
-    .to(".chars span", {
+    .to(".home .chars span", {
       y: "-20rem",
       stagger: {
         each: -0.05,
@@ -98,6 +98,7 @@ export function logoIntro() {
   }, "-=.4");
 
 }
+
 /* logo outro */
 export function logoOutro(container) {
 
@@ -114,39 +115,26 @@ export function logoOutro(container) {
   }, "-=.4");
 
 }
-/* BigTitleIntro */
-export function bigTitleIntro(container) {
-  return gsap.to(".title.chars span", {
-    y: 0,
-    stagger: 0.05,
-    duration: 0.2,
-  }, "-=.65");
-}
-export function bigTitleOutro(container) {
-  
-  return gsap.to(".title.chars span", {
-    y: "-20rem",
-    stagger: {
-      each: -0.05,
-      from: "end",
-    },
-    duration: 0.2,
-  })
-}
+
 /* Works Intro */
 export function worksIntro() {
   const tl = gsap.timeline()
 
-  return tl.to("line span", {
+  return tl.to(".works .chars span", {
     y: 0,
-    stagger: 0.1,
-    duration: .7,
-  }, "-=.5").to(".loop card", {
-    y: 0,
-    stagger: 0.1,
-    duration: .65,
-    ease: "power4.In"
-  }, "-=.5");
+    stagger: 0.05,
+    duration: 0.2,
+  }, "-=.65")
+    .to(".works line span", {
+      y: 0,
+      stagger: 0.1,
+      duration: .7,
+    }, "-=.5").to(".loop card", {
+      y: 0,
+      stagger: 0.1,
+      duration: .65,
+      ease: "power4.In"
+    }, "-=.5");
 
 }
 
@@ -154,50 +142,55 @@ export function worksIntro() {
 export function worksOutro() {
   const tl = gsap.timeline()
 
-  return tl.to("line span", {
-    y: "-3rem",
+  return tl.to(".works .chars span", {
+    y: "-20rem",
     stagger: {
-      each: -0.1,
+      each: -0.05,
       from: "end",
     },
-    duration: .7,
-  }, "-=.5").to(".loop card", {
-    yPercent: 100,
-    stagger: {
-      each: -0.1,
-      from: "end",
-    },
-    duration: .65,
-    ease: "power4.In"
+    duration: 0.2,
   })
+    .to(".works line span", {
+      y: "-3rem",
+      stagger: {
+        each: -0.1,
+        from: "end",
+      },
+      duration: .7,
+    }, "-=.5").to(".loop card", {
+      yPercent: 100,
+      stagger: {
+        each: -0.1,
+        from: "end",
+      },
+      duration: .65,
+      ease: "power4.In"
+    })
 }
 
 /* My Stack Intro */
 export function myStackIntro() {
   const tl = gsap.timeline()
 
-  return tl.to("line span", {
+  return tl.to(".my-stack line span", {
     y: 0,
     stagger: 0.1,
-    duration: .5,
-  }, "-=.5").to("h3 span", {
-    y: 0,
-    duration: .5
-  }, "-=1").to(".cta a", {
-    y: 0,
-    duration: .5
-  }, "-=.1")
+    duration: .4,
+  }, "-=.5")
 }
 
 /* My Stack Outro */
 export function myStackOutro() {
+
   const tl = gsap.timeline()
-  return tl.to("h3 span", {
+  return tl.to(".my-stack line span", {
     y: "-3rem",
-    duration: .4
-  }).to(".cta a", {
-    y: "-3rem",
-    duration: .4
-  }, "-=.5")
+    stagger: {
+      each: -0.05,
+      from: "end",
+    },
+    duration: .2,
+  })
+
 }
 
