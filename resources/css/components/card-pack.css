@@ -1,5 +1,5 @@
 card-pack{
-  @apply grid grid-cols-[4fr_1fr] gap-2
+  @apply grid grid-cols-[4fr_1fr] h-full gap-2
   bg-greylight p-2 rounded-lg;
 }
 

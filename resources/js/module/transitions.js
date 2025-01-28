@@ -1,6 +1,6 @@
 import barba from '@barba/core'
 import barbaPrefetch from '@barba/prefetch'
-import { removeOnce, homeIntro, homeOutro, menuIntro, langSwitcher, logoIntro, logoOutro, removeLogoActive, worksIntro, worksOutro, myStackIntro, myStackOutro } from './gsap.js'
+import { removeOnce, homeIntro, homeOutro, menuIntro, langSwitcher, logoIntro, logoOutro, removeLogoActive, worksIntro, worksOutro, myStackIntro, myStackOutro, packsIntro, packsOutro } from './gsap.js'
 import functions from '../functions.js'
 
 function transitions(deviceData) {
@@ -41,10 +41,11 @@ function transitions(deviceData) {
             logoOutro()
             worksOutro()
             myStackOutro()
+            packsOutro()
 
             setTimeout(() => {
               resolve()
-            }, 1600)
+            }, 1500)
 
           })
         },
@@ -81,11 +82,12 @@ function transitions(deviceData) {
           }
 
           return new Promise(resolve => {
-            homeOutro(current.container)
-            myStackOutro(current.container)
+            homeOutro()
+            myStackOutro()
+            packsOutro()
             setTimeout(() => {
               resolve()
-            }, 1600)
+            }, 1500)
           })
         }
 
@@ -122,10 +124,51 @@ function transitions(deviceData) {
 
             homeOutro()
             worksOutro()
+            packsOutro()
             
             setTimeout(() => {
               resolve()
-            }, 1600)
+            }, 1500)
+          })
+        }
+      },
+      // PACKS
+      { 
+        name: 'to-packs',
+        to: { namespace: 'packs' },
+
+        once({ next }) {
+          console.log('ONCE PACKS')
+          currentCleanup = functions(next.container, deviceData)
+          logoIntro()
+          packsIntro()
+          removeOnce()
+        },
+
+        enter: ({ next }) => {
+          console.log('ENTER PACKS')
+          logoIntro()
+          currentCleanup = functions(next.container, deviceData)
+          packsIntro()
+        },
+
+        leave: ({ next, current }) => {
+          console.log('LEAVE -> TO PACKS')
+          
+          // Limpiar funciones anteriores
+          if (currentCleanup && typeof currentCleanup === 'function') {
+            currentCleanup()
+          }
+
+          return new Promise(resolve => {
+
+            homeOutro()
+            worksOutro()
+            myStackOutro()
+            
+            setTimeout(() => {
+              resolve()
+            }, 1500)
           })
         }
       }

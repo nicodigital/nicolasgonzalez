@@ -139,7 +139,7 @@ export function worksIntro() {
       y: 0,
       stagger: 0.1,
       duration: .7,
-    }, "-=.5").to(".loop card", {
+    }, "-=.5").to(".works card", {
       y: 0,
       stagger: 0.1,
       duration: .65,
@@ -167,7 +167,7 @@ export function worksOutro() {
         from: "end",
       },
       duration: .7,
-    }, "-=.5").to(".loop card", {
+    }, "-=.5").to(".works card", {
       yPercent: 100,
       stagger: {
         each: -0.1,
@@ -185,7 +185,7 @@ export function myStackIntro() {
   return tl.to(".my-stack line span", {
     y: 0,
     stagger: 0.1,
-    duration: .4,
+    duration: .2,
   }, "-=.5")
 }
 
@@ -202,5 +202,40 @@ export function myStackOutro() {
     duration: .2,
   })
 
+}
+
+/* Packs Intro */
+export function packsIntro() {
+  const tl = gsap.timeline()
+
+  return tl.to(".packs line span", {
+    y: 0,
+    stagger: 0.1,
+    duration: .4,
+  }, "-=.5").to(".packs card-pack", {
+    y: 0,
+    stagger: 0.1,
+    duration: .7,
+    ease: "power4.In"
+  })
+}
+
+/* Packs Outro */
+export function packsOutro() {
+  const tl = gsap.timeline()
+
+  return tl.to(".packs line span", {
+    y: "-3rem",
+    stagger: 0.1,
+    duration: .4,
+  }, "-=.5").to(".packs card-pack", {
+    yPercent: 100,
+    stagger: {
+      each: -0.05,
+      from: "end",
+    },
+    duration: 0.6,
+    ease: "power4.In"
+  })
 }
 

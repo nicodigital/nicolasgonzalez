@@ -5,8 +5,8 @@
 }
 
 line{
-  @apply xg:block overflow-hidden;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  @apply xg:block;
+  clip-path: polygon(-15% 0, 115% 0, 115% 100%, -15% 100%);
 }
 
 line span{
@@ -16,11 +16,11 @@ line span{
 }
 
 .anim-box{
-  width: fit-content;
   clip-path: polygon(-15% 0, 115% 0, 115% 100%, -15% 100%);
 }
 
-.loop card{
+.loop card,
+.loop card-pack{
   @apply translate-y-[105%]
 }
 
