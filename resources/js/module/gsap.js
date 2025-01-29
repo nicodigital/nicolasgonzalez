@@ -175,7 +175,7 @@ export function worksOutro() {
       },
       duration: .65,
       ease: "power4.In"
-    })
+    }, "-=.5")
 }
 
 /* My Stack Intro */

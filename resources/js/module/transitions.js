@@ -46,7 +46,7 @@ function transitions(deviceData) {
 
             setTimeout(() => {
               resolve()
-            }, 1500)
+            }, 1400)
 
           })
         },
@@ -89,7 +89,7 @@ function transitions(deviceData) {
             contactOutro()
             setTimeout(() => {
               resolve()
-            }, 1500)
+            }, 1400)
           })
         }
 
@@ -131,7 +131,7 @@ function transitions(deviceData) {
             
             setTimeout(() => {
               resolve()
-            }, 1500)
+            }, 1400)
           })
         }
       },
@@ -172,7 +172,7 @@ function transitions(deviceData) {
             
             setTimeout(() => {
               resolve()
-            }, 1500)
+            }, 1400)
           })
         }
       },
@@ -213,7 +213,7 @@ function transitions(deviceData) {
             
             setTimeout(() => {
               resolve()
-            }, 1500)
+            }, 1400)
           })
         }
       }
