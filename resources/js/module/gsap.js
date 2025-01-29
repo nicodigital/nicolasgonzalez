@@ -138,7 +138,7 @@ export function worksIntro() {
     .to(".works line span", {
       y: 0,
       stagger: 0.1,
-      duration: .7,
+      duration: .5,
     }, "-=.5").to(".works card", {
       y: 0,
       stagger: 0.1,
@@ -239,3 +239,54 @@ export function packsOutro() {
   })
 }
 
+/* Contact Intro */
+export function contactIntro() {
+
+  const tl = gsap.timeline()
+
+  return tl.to(".contact h1 a", {
+    y: 0,
+    duration: .7,
+  })
+  .to(".contact .tel-1 a", {
+    y: 0,
+    duration: .6,
+  }, "-=.2")
+  .to(".contact .tel-2 a", {
+    y: 0,
+    duration: .6,
+  }, "-=.2")
+  .to(".contact .chars span", {
+    y: 0,
+    stagger: 0.05,
+    duration: 0.1,
+  }, "-=.8")
+}
+
+
+/* Contact Outro */
+export function contactOutro() {
+
+  const tl = gsap.timeline()
+
+  return tl.to(".contact h1 a", {
+    y: "-4.5rem",
+    duration: .4,
+  })
+  .to(".contact .tel-1 a", {
+    y: "-3.5rem",
+    duration: .3,
+  }, "-=.2")
+  .to(".contact .tel-2 a", {
+     y: "-3.5rem",
+    duration: .3,
+  }, "-=.2")
+  .to(".contact .chars span", {
+    yPercent: -100,
+    stagger: {
+      each: -0.05,
+      from: "end",
+    },
+    duration: 0.1,
+  }, "-=.8")
+}

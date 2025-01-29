@@ -1,6 +1,6 @@
 import barba from '@barba/core'
 import barbaPrefetch from '@barba/prefetch'
-import { removeOnce, homeIntro, homeOutro, menuIntro, langSwitcher, logoIntro, logoOutro, removeLogoActive, worksIntro, worksOutro, myStackIntro, myStackOutro, packsIntro, packsOutro } from './gsap.js'
+import { removeOnce, homeIntro, homeOutro, menuIntro, langSwitcher, logoIntro, logoOutro, removeLogoActive, worksIntro, worksOutro, myStackIntro, myStackOutro, packsIntro, packsOutro, contactIntro, contactOutro } from './gsap.js'
 import functions from '../functions.js'
 
 function transitions(deviceData) {
@@ -42,6 +42,7 @@ function transitions(deviceData) {
             worksOutro()
             myStackOutro()
             packsOutro()
+            contactOutro()
 
             setTimeout(() => {
               resolve()
@@ -85,6 +86,7 @@ function transitions(deviceData) {
             homeOutro()
             myStackOutro()
             packsOutro()
+            contactOutro()
             setTimeout(() => {
               resolve()
             }, 1500)
@@ -125,6 +127,7 @@ function transitions(deviceData) {
             homeOutro()
             worksOutro()
             packsOutro()
+            contactOutro()
             
             setTimeout(() => {
               resolve()
@@ -165,6 +168,48 @@ function transitions(deviceData) {
             homeOutro()
             worksOutro()
             myStackOutro()
+            contactOutro()
+            
+            setTimeout(() => {
+              resolve()
+            }, 1500)
+          })
+        }
+      },
+      // CONTACT
+      { 
+        name: 'to-contact',
+        to: { namespace: 'contact' },
+
+        once({ next }) {
+          console.log('ONCE CONTACT')
+          currentCleanup = functions(next.container, deviceData)
+          logoIntro()
+          contactIntro()
+          removeOnce()
+        },
+
+        enter: ({ next }) => {
+          console.log('ENTER CONTACT')
+          logoIntro()
+          currentCleanup = functions(next.container, deviceData)
+          contactIntro()
+        },
+
+        leave: ({ next, current }) => {
+          console.log('LEAVE -> TO CONTACT')
+          
+          // Limpiar funciones anteriores
+          if (currentCleanup && typeof currentCleanup === 'function') {
+            currentCleanup()
+          }
+
+          return new Promise(resolve => {
+
+            homeOutro()
+            worksOutro()
+            myStackOutro()
+            packsOutro()
             
             setTimeout(() => {
               resolve()
