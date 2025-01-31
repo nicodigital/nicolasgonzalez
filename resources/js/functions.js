@@ -2,10 +2,10 @@ import lenisScroll from './module/lenisScroll.js'
 import menuMobile from './module/menuMobile.js'
 import scrollMarkers from './module/scrollMarkers.js'
 import pointer from './module/pointer.js'
+import filters from './module/filters.js'
 // import modal from './module/modal.js'
 // import accordion from './module/accordion.js'
 // import cookies from './module/cookies.js'
-// import filters from './module/filters.js'
 // import darkModeOS from './module/darkModeOS.js'
 import animations from './module/animations.js'
 import preventZoom from './module/preventZoom.js'
@@ -20,7 +20,7 @@ function functions (container = document, deviceData) {
   scrollMarkers(deviceData)
   
   if (deviceData.isDesktop === true ) pointer()
-  // filters()
+  filters()
   animations(container)
   preventZoom()
   alertRotateDevice(deviceData.isDesktop, deviceData.isBigTablet, deviceData.isMobile)

@@ -1,0 +1,31 @@
+works:
+  - 
+    title: "DOMO"
+    img_url: "https://nicowebsite.com/wp-content/themes/nicolook/img/projects/d-o-m-o.webp"
+    link: "https://proyecto1.com"
+    cat: "one-page"
+  -
+    title: "Inmoova" 
+    img_url: "https://nicowebsite.com/wp-content/themes/nicolook/img/projects/inmoova.webp"
+    link: "https://proyecto2.com"
+    cat: "dynamic-site"
+  -
+    title: "Club Juventud"
+    img_url: "https://nicowebsite.com/wp-content/themes/nicolook/img/projects/juventud.webp" 
+    link: "https://proyecto3.com"
+    cat: "dynamic-site"
+  -
+    title: "BOLD"
+    img_url: "https://nicowebsite.com/wp-content/themes/nicolook/img/projects/bold.webp"
+    link: "https://proyecto3.com"
+    cat: "static-site"
+  -  
+    title: "PERRIN"
+    img_url: "https://nicowebsite.com/wp-content/themes/nicolook/img/projects/perrin.webp"
+    link: "https://proyecto3.com" 
+    cat: "ecommerce"
+  -
+    title: "Adrian Birges"
+    img_url: "https://nicowebsite.com/wp-content/themes/nicolook/img/projects/adrian-borges.webp"
+    link: "https://proyecto3.com"
+    cat: "static-site"
