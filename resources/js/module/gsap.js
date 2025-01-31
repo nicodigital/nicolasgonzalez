@@ -33,7 +33,7 @@ export function langSwitcher() {
       x: 0,
       duration: .5,
       onComplete: () => {
-        document.querySelectorAll(".lang-switcher").forEach( langSwitcher => {
+        document.querySelectorAll(".lang-switcher").forEach(langSwitcher => {
           langSwitcher.classList.remove("anim-box")
         })
       }
@@ -44,16 +44,16 @@ export function langSwitcher() {
 export function homeIntro(container) {
   const tl = gsap.timeline()
 
-  return tl.to('.home h1', {
-    y: 0,
+  return tl.to('.home .txt-anim span', {
+    className: "in",
     duration: .75,
     delay: .75
   }, "-=.2")
     .to(".home line span", {
-      y: 0,
+      className: "in",
       stagger: 0.15,
       duration: .6,
-    }, "-=1")
+    }, "-=.5")
     .to("#btnWorks", {
       y: 0,
       duration: .65,
@@ -68,12 +68,12 @@ export function homeIntro(container) {
 export function homeOutro(container) {
   const tl = gsap.timeline()
 
-  return tl.to('.home h1', {
-    y: "-3rem",
+  return tl.to('.home .txt-anim span', {
+    className: "out",
     duration: .75,
   })
     .to(".home line span", {
-      y: "-3rem",
+      className: "out",
       stagger: -0.1,
       duration: .7,
     }, "-=.75")
@@ -104,7 +104,7 @@ export function logoIntro() {
     onComplete: () => {
       setTimeout(() => {
         document.querySelector('body').classList.add('logo-active')
-      },1000) 
+      }, 1000)
     }
   }, "-=.4");
 
@@ -189,7 +189,7 @@ export function myStackIntro() {
   const tl = gsap.timeline()
 
   return tl.to(".my-stack line span", {
-    y: 0,
+    className: "in",
     stagger: 0.1,
     duration: .2,
   }, "-=.5")
@@ -200,7 +200,7 @@ export function myStackOutro() {
 
   const tl = gsap.timeline()
   return tl.to(".my-stack line span", {
-    y: "-3rem",
+    className: "out",
     stagger: {
       each: -0.05,
       from: "end",
@@ -215,8 +215,8 @@ export function packsIntro() {
   const tl = gsap.timeline()
 
   return tl.to(".packs line span", {
-    y: 0,
-    stagger: 0.1,
+    className: "in",
+    stagger: 0.2,
     duration: .4,
   }, "-=.5").to(".packs card-pack", {
     y: 0,
@@ -231,7 +231,7 @@ export function packsOutro() {
   const tl = gsap.timeline()
 
   return tl.to(".packs line span", {
-    y: "-3rem",
+    className: "out",
     stagger: 0.1,
     duration: .4,
   }, "-=.5").to(".packs card-pack", {
@@ -254,19 +254,19 @@ export function contactIntro() {
     y: 0,
     duration: .7,
   })
-  .to(".contact .tel-1 a", {
-    y: 0,
-    duration: .6,
-  }, "-=.2")
-  .to(".contact .tel-2 a", {
-    y: 0,
-    duration: .6,
-  }, "-=.2")
-  .to(".contact .chars span", {
-    y: 0,
-    stagger: 0.05,
-    duration: 0.1,
-  }, "-=1")
+    .to(".contact .tel-1 a", {
+      y: 0,
+      duration: .6,
+    }, "-=.2")
+    .to(".contact .tel-2 a", {
+      y: 0,
+      duration: .6,
+    }, "-=.2")
+    .to(".contact .chars span", {
+      y: 0,
+      stagger: 0.05,
+      duration: 0.1,
+    }, "-=1")
 }
 
 
@@ -279,20 +279,20 @@ export function contactOutro() {
     y: "-4.5rem",
     duration: .4,
   })
-  .to(".contact .tel-1 a", {
-    y: "-3.5rem",
-    duration: .3,
-  }, "-=.2")
-  .to(".contact .tel-2 a", {
-     y: "-3.5rem",
-    duration: .3,
-  }, "-=.2")
-  .to(".contact .chars span", {
-    yPercent: -100,
-    stagger: {
-      each: -0.05,
-      from: "end",
-    },
-    duration: 0.1,
-  }, "-=.8")
+    .to(".contact .tel-1 a", {
+      y: "-3.5rem",
+      duration: .3,
+    }, "-=.2")
+    .to(".contact .tel-2 a", {
+      y: "-3.5rem",
+      duration: .3,
+    }, "-=.2")
+    .to(".contact .chars span", {
+      yPercent: -100,
+      stagger: {
+        each: -0.05,
+        from: "end",
+      },
+      duration: 0.1,
+    }, "-=.8")
 }

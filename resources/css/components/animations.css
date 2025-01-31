@@ -9,14 +9,29 @@ line{
   clip-path: polygon(-15% 0, 115% 0, 115% 100%, -15% 100%);
 }
 
+.txt-anim span,
 line span{
-  @apply inline-flex translate-y-[-6rem] xg:translate-y-[-3rem];
+  @apply inline-flex;
   transition: all .5s ease-out;
+}
+
+line span.out{
+  @apply translate-y-[-6rem] xg:translate-y-[-3rem];
 }
 
 .anim-box{
   clip-path: polygon(-15% 0, 115% 0, 115% 100%, -15% 100%);
 }
+
+.txt-anim .out{
+   @apply translate-y-[-7rem] xg:translate-y-[-3.7rem];
+}
+
+line span.in,
+.txt-anim .in{
+  @apply translate-y-0;
+}
+
 
 .loop card,
 .loop card-pack{
