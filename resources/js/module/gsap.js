@@ -1,8 +1,9 @@
 import { gsap } from "gsap";
 
+/* Remove Once */
 export function removeOnce(container) {
   setTimeout(() => { // Removemos la clase "once" para que saber que ya se ha cargado el ONCE
-    document.querySelector('body').classList.remove('once');
+    document.querySelector('body').classList.remove('once')
   }, 5000)
 }
 
@@ -23,7 +24,7 @@ export function langSwitcher() {
   return tl.to(".lang-switcher a:nth-child(1)", {
     x: 0,
     duration: .5,
-  }, "3")
+  }, "2")
     .to(".lang-switcher span", {
       width: "100%",
       duration: .5,
@@ -31,7 +32,12 @@ export function langSwitcher() {
     .to(".lang-switcher a:nth-child(3)", {
       x: 0,
       duration: .5,
-    }, "-=.5");
+      onComplete: () => {
+        document.querySelectorAll(".lang-switcher").forEach( langSwitcher => {
+          langSwitcher.classList.remove("anim-box")
+        })
+      }
+    }, "-=.5")
 
 }
 /* Home Intro */
@@ -260,7 +266,7 @@ export function contactIntro() {
     y: 0,
     stagger: 0.05,
     duration: 0.1,
-  }, "-=.8")
+  }, "-=1")
 }
 
 

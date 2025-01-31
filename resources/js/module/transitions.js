@@ -24,7 +24,7 @@ function transitions(deviceData) {
           homeIntro(next.container)
           langSwitcher()
           currentCleanup = functions(next.container, deviceData)
-          removeOnce()
+          removeOnce(next.container)
         },
         enter({ next }) {
           console.log('ENTER TO HOME')
@@ -32,7 +32,7 @@ function transitions(deviceData) {
           removeLogoActive()
           homeIntro(next.container)
           currentCleanup = functions(next.container, deviceData)
-          removeOnce()
+          removeOnce(next.container)
         },
         leave: ({ next, current }) => {
           console.log('LEAVE -> TO HOME')
@@ -61,7 +61,8 @@ function transitions(deviceData) {
           logoIntro()
           worksIntro()
           currentCleanup = functions(next.container, deviceData)
-          removeOnce()
+          langSwitcher()
+          removeOnce(next.container)
         },
 
         enter: ({ next }) => {
@@ -104,7 +105,8 @@ function transitions(deviceData) {
           currentCleanup = functions(next.container, deviceData)
           logoIntro()
           myStackIntro()
-          removeOnce()
+          langSwitcher()
+          removeOnce(next.container)
         },
 
         enter: ({ next }) => {
@@ -145,7 +147,8 @@ function transitions(deviceData) {
           currentCleanup = functions(next.container, deviceData)
           logoIntro()
           packsIntro()
-          removeOnce()
+          langSwitcher()
+          removeOnce(next.container)
         },
 
         enter: ({ next }) => {
@@ -186,7 +189,8 @@ function transitions(deviceData) {
           currentCleanup = functions(next.container, deviceData)
           logoIntro()
           contactIntro()
-          removeOnce()
+          langSwitcher()
+          removeOnce(next.container)
         },
 
         enter: ({ next }) => {
