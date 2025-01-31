@@ -5,13 +5,12 @@
 }
 
 line{
-  @apply xg:block;
+  @apply inline-flex xg:block;
   clip-path: polygon(-15% 0, 115% 0, 115% 100%, -15% 100%);
 }
 
 line span{
-  @apply xg:inline-flex;
-  transform: translateY(-3rem);
+  @apply inline-flex translate-y-[-6rem] xg:translate-y-[-3rem];
   transition: all .5s ease-out;
 }
 

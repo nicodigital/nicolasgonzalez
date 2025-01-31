@@ -6,28 +6,9 @@ function menuMobile( container, device_data ) {
   const body = device_data.body;
   const btn_togg = container.querySelectorAll('.togg');
 
-  // Crea un elemento div que tenga un ancho forzado de desbordamiento
-  var scrollDiv = container.createElement('div');
-  scrollDiv.style.width = '100px';
-  scrollDiv.style.height = '100px';
-  scrollDiv.style.overflow = 'scroll';
-
-  // Agrega el elemento al documento, pero fuera del área visible
-  container.body.appendChild(scrollDiv);
-
-  // Calcula el ancho de la barra de desplazamiento restando el ancho del contenido interno del div del ancho del div con desbordamiento
-  var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-
-  // Elimina el div de prueba
-  container.body.removeChild(scrollDiv);
-
-  // La variable "scrollbarWidth" ahora contiene el ancho de la barra de desplazamiento en píxeles
-  // console.log('Ancho de la barra de desplazamiento: ' + scrollbarWidth + ' píxeles');
-
-
   function menuToggler() {
 
-    const toggler = container.querySelector('body.toggler');
+    const toggler = document.querySelector('body.toggler');
 
     if ( toggler.classList.contains('menu-in') ) {
 

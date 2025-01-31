@@ -14,20 +14,3 @@
     @apply xg:translate-x-[2.5rem];
 }
 
-/* .once{
-  animation: firstLoad 1s ease;
-}
-
-@keyframes firstLoad{
-  
-  from{
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-} */
