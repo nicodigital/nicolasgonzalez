@@ -1,0 +1,61 @@
+title: Work
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: thumbnail
+            field:
+              container: assets
+              type: assets
+              display: Thumbnail
+          -
+            handle: link_field
+            field:
+              collections:
+                - works
+              type: link
+              display: Link
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - works
+              max_items: 1
+              listable: false
+              localizable: true
+          -
+            handle: cat
+            field:
+              type: terms
+              taxonomies:
+                - cat
+              display: Category
+              mode: select

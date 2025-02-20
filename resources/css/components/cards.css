@@ -1,7 +1,32 @@
 card{
-    @apply flex bg-greylight rounded-lg aspect-video overflow-hidden;
+    @apply relative flex rounded-lg aspect-[16/8] cursor-none
+    overflow-hidden;
+    background: color-mix(in srgb, var(--greyLight), transparent 50%);
+    filter: grayscale(100%);
+}
+
+card::before{
+    content: '';
+    @apply absolute inset-0 bg-white z-0 
+    transition-all duration-300 ease-in-out;
 }
 
 card img{
-    @apply object-cover object-center w-full h-full
+    @apply relative z-10 object-cover object-center w-full h-full opacity-75;
+    filter: contrast(150%);
+    mix-blend-mode: difference;
+}
+
+card:hover{
+    filter: grayscale(0);
+}
+
+card:hover img{
+    @apply opacity-100 transition-all duration-300 ease-in-out;
+    filter: contrast(100%);
+}
+
+card:hover::before{
+    @apply opacity-0;
+    filter: blur(0);
 }

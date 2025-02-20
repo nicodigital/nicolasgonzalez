@@ -1,0 +1,7 @@
+title: Category
+preview_targets:
+  -
+    label: Cat
+    url: '{permalink}'
+    refresh: true
+layout: layout

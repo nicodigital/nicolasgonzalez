@@ -82,7 +82,7 @@ export function homeOutro(container) {
       duration: .75,
     }, "-=.75")
     .to(".home .chars span", {
-      y: "-20rem",
+      y: "-22rem",
       stagger: {
         each: -0.05,
         from: "end",
@@ -159,7 +159,7 @@ export function worksOutro() {
   const tl = gsap.timeline()
 
   return tl.to(".works .chars span", {
-    y: "-20rem",
+    y: "-22rem",
     stagger: {
       each: -0.05,
       from: "end",

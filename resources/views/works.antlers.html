@@ -28,16 +28,20 @@
     </div>
   </row>
 
-  <div class="grid loop xg:grid-cols-3 gap-2">
+  <div class="grid loop xg:grid-cols-2 gap-2">
 
-    {{ works }}
-      <a href="{{ link }}" class="filter-item anim-box" data-filter="{{ cat }}" target='_blank' rel='noreferrer noopener'>
+    {{ collection:works }}
+      <a href="{{ link_field }}" class="filter-item anim-box" data-filter="{{ cat }}" target='_blank' rel='noreferrer noopener'>
         <card class="pointer-arrow">
-          <img src='{{ img_url }}' alt='Placeholder image {{ title }}' loading='lazy' decoding='async'
-            fetchpriority='low' />
+          <figure>
+            <img src="{{ thumbnail:0 }}" alt="{{ title }}" loading='lazy' decoding='async' fetchpriority='low' />
+            <figcaption>
+              {{ title }}
+            </figcaption>
+          </figure>
         </card>
       </a>
-    {{ /works }}
+    {{ /collection:works }}
 
   </div>
 

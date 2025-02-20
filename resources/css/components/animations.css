@@ -1,6 +1,6 @@
 .chars span{
   @apply inline-flex;
-  transform: translateY(-20rem);
+  transform: translateY(-22rem);
   transition: all .5s;
 }
 
