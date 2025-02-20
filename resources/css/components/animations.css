@@ -1,274 +1,231 @@
-.chars span{
-  @apply inline-flex;
-  transform: translateY(-22rem);
-  transition: all .5s;
+.chars span {
+    @apply inline-flex;
+    transform: translateY(-22rem);
+    transition: all 0.5s;
 }
 
-line{
-  @apply inline-flex xg:block;
-  clip-path: polygon(-15% 0, 115% 0, 115% 100%, -15% 100%);
+line {
+    @apply inline-flex xg:block;
+    clip-path: polygon(-15% 0, 115% 0, 115% 100%, -15% 100%);
 }
 
 .txt-anim span,
-line span{
-  @apply inline-flex;
-  transition: all .5s ease-out;
+line span {
+    @apply inline-flex;
+    transition: all 0.5s ease-out;
 }
 
-line span.out{
-  @apply translate-y-[-6rem] xg:translate-y-[-3rem];
+line span.out {
+    @apply translate-y-[-6rem] xg:translate-y-[-3rem];
 }
 
-.anim-box{
-  clip-path: polygon(-15% 0, 115% 0, 115% 100%, -15% 100%);
+.anim-box {
+    clip-path: polygon(-15% 0, 115% 0, 115% 100%, -15% 100%);
 }
 
-.txt-anim .out{
-   @apply translate-y-[-7rem] xg:translate-y-[-3.7rem];
+.txt-anim .out {
+    @apply translate-y-[-7rem] xg:translate-y-[-3.7rem];
 }
 
 line span.in,
-.txt-anim .in{
-  @apply translate-y-0;
+.txt-anim .in {
+    @apply translate-y-0;
 }
-
 
 .loop card,
-.loop card-pack{
-  @apply translate-y-[105%]
+.loop card-pack {
+    @apply translate-y-[105%];
 }
 
-[data-anim]{
-   opacity: 0;
-   transition: all 1s ease;
+[data-anim] {
+    opacity: 0;
+    transition: all 1s ease;
 
-   &.anim-on{
-       animation-duration: 1s;
-       animation-timing-function: ease;
-   }
-
+    &.anim-on {
+        animation-duration: 1s;
+        animation-timing-function: ease;
+    }
 }
 
-[data-anim="bottom"].anim-on{
-  animation-name: AnimBottom;
+[data-anim="bottom"].anim-on {
+    animation-name: AnimBottom;
 }
 
-[data-anim="top"].anim-on{
-  animation-name: AnimTop;
+[data-anim="top"].anim-on {
+    animation-name: AnimTop;
 }
 
-[data-anim="left"].anim-on{
-  animation-name: AnimLeft;
+[data-anim="left"].anim-on {
+    animation-name: AnimLeft;
 }
 
-[data-anim="right"].anim-on{
-  animation-name: AnimRight;
+[data-anim="right"].anim-on {
+    animation-name: AnimRight;
 }
 
-[data-anim="fade"].anim-on{
-   animation-name: AnimFade;
- }
+[data-anim="fade"].anim-on {
+    animation-name: AnimFade;
+}
 
-[data-anim="line"]{
+[data-anim="line"] {
+    display: block;
+    overflow: hidden;
+    opacity: 1 !important;
+    transition: all 0.8s ease;
 
-   display: block;
-   overflow: hidden;
-   opacity: 1 !important;
-   transition: all .8s ease;
-
-   & > span{
-      display: block;
-      /* transform: translateY(3rem); */
-      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-      transition: all .8s ease;
-  
-      & span{
+    & > span {
         display: block;
-        transform: translateY(3.5rem);
-        transition: all .8s ease;
-      }
-  
+        /* transform: translateY(3rem); */
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+        transition: all 0.8s ease;
+
+        & span {
+            display: block;
+            transform: translateY(3.5rem);
+            transition: all 0.8s ease;
+        }
     }
 
     &.anim-on {
+        & > span {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 
-      & > span{
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        
-        & span{
-          transform: translateY(0);
+            & span {
+                transform: translateY(0);
+            }
         }
-        
-      }
-  
     }
-
-
 }
 
-.anim-on{
+.anim-on {
     opacity: 1;
 }
 
 @keyframes AnimBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
 
- 0% {
-   opacity: 0;
-   transform: translateY(2rem);
-}
-
-100% {
-   opacity: 1;
-   transform: translateY(0);
-}
-
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes AnimTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
 
- 0% {
-   opacity: 0;
-   transform: translateY(-3rem);
-}
-
-100% {
-   opacity: 1;
-   transform: translateY(0);
-}
-
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes AnimLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-3rem);
+    }
 
- 0% {
-   opacity: 0;
-   transform: translateX(-3rem);
-}
-
-100% {
-   opacity: 1;
-   transform: translateX(0);
-}
-
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes AnimRight {
+    0% {
+        opacity: 0;
+        transform: translateX(3rem);
+    }
 
- 0% {
-   opacity: 0;
-   transform: translateX(3rem);
-}
-
-100% {
-   opacity: 1;
-   transform: translateX(0);
-}
-
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes AnimFade {
+    0% {
+        opacity: 0;
+    }
 
-   0% {
-     opacity: 0;
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Anim Out */
+
+@keyframes AnimLeftOut {
+  0% {
+      opacity: 1;
+      transform: translateX(0);
   }
 
   100% {
-     opacity: 1;
+      opacity: 0;
+      transform: translateX(3rem);
+  }
+}
+
+@keyframes AnimRightOut {
+  0% {
+      opacity: 1;
+      transform: translateX(0);
   }
 
-}
-
-.floating{
-  animation-name: floating;
-  -webkit-animation-name: floating;
-  animation-duration: 1.5s;
-  -webkit-animation-duration: 1.5s;
-  animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite
-}
-
-@keyframes floating {
-  0% {
-    -ms-transform: translate(-50%, 0);
-    -webkit-transform: translate(-50%, 0);
-    transform: translate(-50%, 0)
- }
-
- 50% {
-    -ms-transform: translate(-50%, 20%);
-    -webkit-transform: translate(-50%, 20%);
-    transform: translate(-50%, 20%)
- }
-
- 100% {
-    -ms-transform: translate(-50%, 0%);
-    -webkit-transform: translate(-50%, 0%);
-    transform: translate(-50%, 0%)
- }
-}
-
-/* Fade In */
-.fade-in {
-  animation-name: fadeIn;
-  -webkit-animation-name: fadeIn;
-  animation-duration: .5s;
-  -webkit-animation-duration: .5s;
-  animation-timing-function: ease-in-out;
-  -webkit-animation-timing-function: ease-in-out;
-  visibility: visible !important;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
- }
- 100% {
-    opacity: 1;
- }
-}
-
-.fade-out {
-   animation-name: fadeOut;
-   -webkit-animation-name: fadeOut;
-   animation-duration: .5s;
-   -webkit-animation-duration: .5s;
-   animation-fill-mode: forwards;
-   animation-timing-function: ease-in-out;
-   -webkit-animation-timing-function: ease-in-out;
- }
- 
- @keyframes fadeOut {
-   0% {
-     opacity: 1;
-  }
   100% {
-     opacity: 0;
+      opacity: 0;
+      transform: translateX(3rem);
   }
- }
-
-
- .img-load{
-  animation-name: imgLoad;
-  -webkit-animation-name: imgLoad;
-  animation-duration: 10s;
-  -webkit-animation-duration: 10s;
-  animation-timing-function: ease;
-  -webkit-animation-timing-function: ease;
-  animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite; 
 }
 
+@keyframes AnimTopOut {
+  0% {
+      transform: translateY(0);
+  }
+
+  100% {
+      transform: translateY(-100%);
+  }
+}
+
+@keyframes AnimBottomOut {
+  0% {
+      transform: translateY(0);
+  }
+
+  100% {
+      transform: translateY(100%);
+  }
+}
+
+.img-load {
+    animation-name: imgLoad;
+    -webkit-animation-name: imgLoad;
+    animation-duration: 10s;
+    -webkit-animation-duration: 10s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
 
 @keyframes imgLoad {
-  0% {
-    background: #ececec;
- }
+    0% {
+        background: #ececec;
+    }
 
- 50% {
-    background: #f7f7f7;
- }
+    50% {
+        background: #f7f7f7;
+    }
 
- 100% {
-    background: #ececec;
- }
+    100% {
+        background: #ececec;
+    }
 }

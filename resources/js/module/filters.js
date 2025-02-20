@@ -1,11 +1,10 @@
-function filters() {
+function filters(container = document) {
+  const filterList = container.querySelector(".filter");
+  const cleanup = [];
 
-  const filterList = document.querySelector(".filter");
-
-  if ( filterList ) {
-
+  if (filterList) {
     const filterButtons = filterList.querySelectorAll(".filter-btn");
-    const filterItems = document.querySelectorAll(".filter-item");
+    const filterItems = container.querySelectorAll(".filter-item");
 
     let filterItemIndex = 0;
 
@@ -13,46 +12,60 @@ function filters() {
       filterItem.style.viewTransitionName = `item-${++filterItemIndex}`;
     });
 
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", (e) => {
-        // Obtener las categorías seleccionadas del botón, separadas por comas y eliminando espacios adicionales
-        let selectedFilters = e.target.getAttribute("data-filter").split(',').map(filter => filter.trim());
+    const handleClick = (e) => {
+      try {
+        const target = e.target.closest('[data-filter]');
+        if (!target) return;
+
+        const dataFilter = target.getAttribute("data-filter");
+        if (!dataFilter) return;
+
+        const selectedFilters = dataFilter.split(',').map(filter => filter.trim());
 
         if (!document.startViewTransition) {
-          updateActiveButton(e.target);
+          updateActiveButton(target);
           filterEvents(selectedFilters);
+        } else {
+          document.startViewTransition(() => {
+            updateActiveButton(target);
+            filterEvents(selectedFilters);
+          });
         }
+      } catch (error) {
+        console.error('Error in filter click handler:', error);
+      }
+    };
 
-        document.startViewTransition(() => {
-          updateActiveButton(e.target);
-          filterEvents(selectedFilters);
-        });
-      });
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", handleClick);
+      cleanup.push(() => button.removeEventListener("click", handleClick));
     });
 
     function updateActiveButton(newButton) {
-      filterList.querySelector(".active").classList.remove("active");
-      newButton.classList.add("active");
+      const activeButton = filterList.querySelector(".active");
+      if (activeButton) activeButton.classList.remove("active");
+      if (newButton) newButton.classList.add("active");
     }
 
     function filterEvents(filters) {
       filterItems.forEach((filterItem) => {
-        // Obtener las categorías del ítem, separadas por comas y eliminando espacios adicionales
-        let dataTypes = filterItem.getAttribute("data-filter").split(',').map(type => type.trim());
+        const dataFilter = filterItem.getAttribute("data-filter");
+        if (!dataFilter) return;
 
-        // Verificar si alguna de las categorías seleccionadas coincide con las categorías del ítem
-        let match = filters.includes("all") || filters.some(filter => dataTypes.includes(filter));
+        const dataTypes = dataFilter.split(',').map(type => type.trim());
+        const match = filters.includes("*") || filters.some(filter => dataTypes.includes(filter));
 
         if (match) {
           filterItem.removeAttribute("hidden");
         } else {
-          filterItem.set("hidden", "");
+          filterItem.setAttribute("hidden", "");
         }
       });
     }
-
   }
 
+  // Return cleanup function
+  return () => cleanup.forEach(fn => fn());
 }
 
 export default filters;

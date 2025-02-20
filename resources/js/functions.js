@@ -20,8 +20,8 @@ function functions (container = document, deviceData) {
   scrollMarkers(deviceData)
   
   if (deviceData.isDesktop === true ) pointer()
-  filters()
-  animations(container)
+  filters(container)
+  // animations(container)
   preventZoom()
   alertRotateDevice(deviceData.isDesktop, deviceData.isBigTablet, deviceData.isMobile)
 

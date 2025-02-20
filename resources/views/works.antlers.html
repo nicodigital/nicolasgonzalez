@@ -30,37 +30,38 @@
   <div class="grid loop xg:grid-cols-2 gap-2">
 
     {{ collection:works }}
-      <a href="{{ link_field }}" class="filter-item anim-box" data-filter="{{ cat:handle }}" target='_blank' rel='noreferrer noopener'>
-        <pre>{{ cat:title }}</pre>
-        <card class="pointer-arrow">
-          <figure>
-            <img src="{{ thumbnail:0 }}" alt="{{ title }}" loading='lazy' decoding='async' fetchpriority='low' />
-            <figcaption>
-              <top>
-                <div>
-                  <h2> {{ title }} </h2>
-                  <p>
-                    {{ desc }}
-                  </p>
-                </div>
-                <arrow> </arrow>
-              </top>
-              <bottom>
-                <div>
-                  {{ cat }}
-                    <span> {{ title }}</span>
-                  {{ /cat }}
-                </div>
-                <div>
-                  {{ link_field }}
-                </div>
-              </bottom>
-            </figcaption>
-          </figure>
-        </card>
-      </a>
+    <a href="{{ link_field }}" class="filter-item anim-box" data-filter="{{ cat }}{{ slug }}{{ unless last }}, {{ /unless }}{{ /cat }}" target='_blank'
+      rel='noreferrer noopener' aria-label='Ir a {{ title }}' aria-describedby='link-description'>
+      <card class="pointer-arrow" role='article' itemscope itemtype='http://schema.org/CreativeWork'>
+        <figure>
+          <img src="{{ thumbnail:0 }}" alt="{{ title }}" loading='lazy' decoding='async' fetchpriority='low' itemprop='image' />
+          <figcaption>
+            <top>
+              <div>
+                <h2 itemprop='name'> <span>{{ title }}</span> </h2>
+                <p itemprop='description'>
+                  <span>{{ desc }}</span>
+                </p>
+              </div>
+              <arrow> <span></span> </arrow>
+            </top>
+            <bottom>
+              <div>
+                {{ cat }}
+                <cat> <span itemprop='category'>{{ title }}</span> </cat>
+                {{ /cat }}
+              </div>
+              <div class="link">
+                  <span itemprop='url'>{{ link_field }}</span>
+              </div>
+            </bottom>
+          </figcaption>
+        </figure>
+      </card>
+    </a>
     {{ /collection:works }}
 
   </div>
 
 </container>
+
