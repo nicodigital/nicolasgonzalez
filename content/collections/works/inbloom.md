@@ -6,7 +6,8 @@ thumbnail:
   - agenciainbloom.com.br_.webp
 link_field: 'https://agenciainbloom.com.br/'
 updated_by: 54955e9f-002f-4ca5-9cf9-39d5c6b35266
-updated_at: 1739184207
+updated_at: 1740074984
 cat:
   - dynamic-site
+desc: 'Agencia de publicidad en Brasil'
 ---

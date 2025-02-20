@@ -6,7 +6,8 @@ thumbnail:
   - www.alohaus.uy_.webp
 link_field: 'https://www.alohaus.uy/'
 updated_by: 54955e9f-002f-4ca5-9cf9-39d5c6b35266
-updated_at: 1739184188
+updated_at: 1740075046
 cat:
   - dynamic-site
+desc: 'Agencia de comunicación en Barcelona'
 ---

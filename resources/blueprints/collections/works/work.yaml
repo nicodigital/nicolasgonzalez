@@ -13,6 +13,11 @@ tabs:
               validate:
                 - required
           -
+            handle: desc
+            field:
+              type: text
+              display: Description
+          -
             handle: thumbnail
             field:
               container: assets

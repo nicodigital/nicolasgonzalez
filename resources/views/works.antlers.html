@@ -1,4 +1,3 @@
-
 <container class="ctr-p filter">
 
   <row>
@@ -31,12 +30,31 @@
   <div class="grid loop xg:grid-cols-2 gap-2">
 
     {{ collection:works }}
-      <a href="{{ link_field }}" class="filter-item anim-box" data-filter="{{ cat }}" target='_blank' rel='noreferrer noopener'>
+      <a href="{{ link_field }}" class="filter-item anim-box" data-filter="{{ cat:handle }}" target='_blank' rel='noreferrer noopener'>
+        <pre>{{ cat:title }}</pre>
         <card class="pointer-arrow">
           <figure>
             <img src="{{ thumbnail:0 }}" alt="{{ title }}" loading='lazy' decoding='async' fetchpriority='low' />
             <figcaption>
-              {{ title }}
+              <top>
+                <div>
+                  <h2> {{ title }} </h2>
+                  <p>
+                    {{ desc }}
+                  </p>
+                </div>
+                <arrow> </arrow>
+              </top>
+              <bottom>
+                <div>
+                  {{ cat }}
+                    <span> {{ title }}</span>
+                  {{ /cat }}
+                </div>
+                <div>
+                  {{ link_field }}
+                </div>
+              </bottom>
             </figcaption>
           </figure>
         </card>
