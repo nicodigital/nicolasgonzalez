@@ -13,7 +13,9 @@
         "php": "^8.2",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
-        "statamic/cms": "^5.0"
+        "statamic/cms": "^5.0",
+        "statamic/ssg": "*",
+        "statamic/static-site-generator": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8.1",
@@ -39,6 +41,12 @@
         }
     },
     "scripts": {
+        "build": [
+            "npm run build",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:generate",
+            "@php please ssg:generate"
+        ],
         "pre-update-cmd": [
             "Statamic\\Console\\Composer\\Scripts::preUpdateCmd"
         ],
