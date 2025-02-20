@@ -29,7 +29,7 @@
 @import "./components/card-pack.css";
 /* @import "./components/accordion.css"; */
 /* @import "./components/social-links.css"; */
-/* @import "./components/filters.css"; */
+@import "./components/filters.css";
 @import "./components/forms.css";
 @import "./components/loader.css";
 /* @import "./components/view-transitions.css"; */
