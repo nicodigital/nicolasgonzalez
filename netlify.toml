@@ -18,19 +18,9 @@
   command = "composer build"
 
 [context.production.environment]
-  #PHP_VERSION="8.3.10"
+  #PHP_VERSION="8.0"
 
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
 	Content-Type = "application/xml"
-
-[[headers]]
-  for = "/fonts/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-[[headers]]
-  for = "/video/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
