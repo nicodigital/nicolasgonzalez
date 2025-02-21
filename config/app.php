@@ -52,8 +52,8 @@ return [
     |
     */
 
-    // 'url' => env('APP_URL', 'http://localhost'),
-    'url' => env('APP_URL', 'https://nicolas-gonzalez.netlify.app'),
+    'url' => env('APP_URL', 'http://localhost'),
+    // 'url' => env('APP_URL', 'https://nicolas-gonzalez.netlify.app'),
 
     /*
     |--------------------------------------------------------------------------

@@ -12,7 +12,7 @@
   # a base has not been set. This sample publishes the directory
   # located at the absolute path "root/project/build-output"
 
-  publish = "./storage/app/static"
+  publish = "public"
 
   # Default build command.
   command = "composer build"
@@ -24,3 +24,13 @@
   for = "/sitemap.xml"
   [headers.values]
 	Content-Type = "application/xml"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/video/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
