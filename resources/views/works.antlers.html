@@ -35,27 +35,6 @@
       <card class="pointer-arrow" role='article' itemscope itemtype='http://schema.org/CreativeWork'>
         <figure>
           <img src="{{ thumbnail:0 }}" alt="{{ title }}" loading='lazy' decoding='async' fetchpriority='low' itemprop='image' />
-          <figcaption>
-            <top>
-              <div>
-                <h2 itemprop='name'> <span>{{ title }}</span> </h2>
-                <p itemprop='description'>
-                  <span>{{ desc }}</span>
-                </p>
-              </div>
-              <arrow> <span></span> </arrow>
-            </top>
-            <bottom>
-              <div>
-                {{ cat }}
-                <cat> <span itemprop='category'>{{ title }}</span> </cat>
-                {{ /cat }}
-              </div>
-              <div class="link">
-                  <span itemprop='url'>{{ link_field }}</span>
-              </div>
-            </bottom>
-          </figcaption>
         </figure>
       </card>
     </a>
