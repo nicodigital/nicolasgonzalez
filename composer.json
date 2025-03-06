@@ -45,7 +45,11 @@
             "npm run build",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate",
-            "@php please ssg:generate"
+            "@php please ssg:generate --quiet",
+            "@php -r \"file_exists('storage/app/static/video') || mkdir('storage/app/static/video', 0755, true);\"",
+            "@php -r \"file_exists('storage/app/static/fonts') || mkdir('storage/app/static/fonts', 0755, true);\"",
+            "@php -r \"shell_exec('cp -R public/video/* storage/app/static/video/');\"",
+            "@php -r \"shell_exec('cp -R public/fonts/* storage/app/static/fonts/');\""
         ],
         "pre-update-cmd": [
             "Statamic\\Console\\Composer\\Scripts::preUpdateCmd"
